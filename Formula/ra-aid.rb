@@ -7,18 +7,15 @@ class RaAid < Formula
   sha256 "4575c4edf5af3e29b7f7852c08b2ceafc49b0b96563c43663b86b7a7bc218b71"
   license "Apache-2.0"
 
-  depends_on "python@3.12"
-  depends_on "numpy"
-  depends_on "rust"
-  depends_on "pillow"
+  depends_on "aider"
   depends_on "certifi"
   depends_on "cffi"
-  depends_on "aider"
-  depends_on "scipy"
-
-
+  depends_on "numpy"
+  depends_on "pillow"
   depends_on "python-setuptools"
-
+  depends_on "python@3.12"
+  depends_on "rust"
+  depends_on "scipy"
 
   # Remaining dependencies that must be installed via pip
   resource "aider-chat" do
@@ -693,7 +690,7 @@ class RaAid < Formula
 
   def install
 
-    #Shoutout to aider whom figured out dealing with the tree-sitter-languages issue
+    # Shoutout to aider whom figured out dealing with the tree-sitter-languages issue
     venv = virtualenv_install_with_resources without: "tree-sitter-languages"
 
     # Requires building languages outside `setup.py`: https://github.com/grantjenks/py-tree-sitter-languages/pull/65
