@@ -8,14 +8,17 @@ class RaAid < Formula
   license "Apache-2.0"
 
   depends_on "python@3.12"
-  depends_on "rust"
   depends_on "numpy"
-  depends_on "scipy"
+  depends_on "rust"
   depends_on "pillow"
   depends_on "certifi"
   depends_on "cffi"
-  depends_on "python-setuptools"
   depends_on "aider"
+  depends_on "scipy"
+
+
+  depends_on "python-setuptools"
+
 
   # Remaining dependencies that must be installed via pip
   resource "aider-chat" do
@@ -332,11 +335,6 @@ class RaAid < Formula
     url "https://files.pythonhosted.org/packages/9f/51/e1ac40ab13a8c13c71b28ab4b71686dfc5f1acd7a8096226d170628d7c3a/langsmith-0.3.6.tar.gz"
     sha256 "ed2f26fbdf095c588cb1fcc1f98c2dd0de452c76f8496d5ff0557031ecbca095"
   end
-
-#  resource "levenshtein" do
-#    url "https://files.pythonhosted.org/packages/97/e6/79807d3b59a67dd78bb77072ca6a28d8db0935161fecf935e6c38c5f6825/levenshtein-0.26.1.tar.gz"
-#    sha256 "0d19ba22330d50609b2349021ec3cf7d905c6fe21195a2d0d876a146e7ed2575"
-#  end
 
   resource "litellm" do
     url "https://files.pythonhosted.org/packages/86/b0/c8ec06bd1c87a92d6d824008982b3c82b450d7bd3be850a53913f1ac4907/litellm-1.59.8.tar.gz"
