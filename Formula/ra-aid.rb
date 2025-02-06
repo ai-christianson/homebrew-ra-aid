@@ -11,46 +11,15 @@ class RaAid < Formula
   depends_on "rust"
   depends_on "numpy"
   depends_on "scipy"
-#  depends_on "protobuf"
   depends_on "pillow"
-#  depends_on "grpc"
-#  depends_on "pygments"
-#  depends_on "click"
-#  depends_on "six"
   depends_on "certifi"
-#  depends_on "pycparser"
   depends_on "cffi"
-#  depends_on "rich"
   depends_on "python-setuptools"
-
-#  depends_on "zstandard"
-#  depends_on "rapidfuzz"
-#  depends_on "sqlalchemy"
-#  depends_on "gitpython"
-#  depends_on "requests"
-#  depends_on "urllib3"
-#  depends_on "tqdm"
-#  depends_on "markdown-it-py"
-#  depends_on "jsonschema"
-#  depends_on "jinja2"
-#  depends_on "pyparsing"
-#  depends_on "idna"
-#  depends_on "importlib-metadata"
-#  depends_on "pydantic"
-#  depends_on "tenacity"
-#  depends_on "pyasn1"
-#  depends_on "pyasn1-modules"
-#  depends_on "rsa"
 
   # Remaining dependencies that must be installed via pip
   resource "rich" do
     url "https://files.pythonhosted.org/packages/ab/3a/0316b28d0761c6734d6bc14e770d85506c986c85ffb239e688eeaab2c2bc/rich-13.9.4.tar.gz"
     sha256 "439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098"
-  end
-
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/fc/97/c783634659c2920c3fc70419e3af40972dbaf758daa229a7d6ea6135c90d/cffi-1.17.1.tar.gz"
-    sha256 "1c39c6016c32bc48dd54561950ebd6836e1670f2ae46128f67cf49e789c52824"
   end
 
   resource "grpcio" do
@@ -84,6 +53,7 @@ class RaAid < Formula
     sha256 "b5de3028921522365aa864d95b3c41926e0ba6a85ee5bd000e10dc49b0766988"
   end
 
+  # shoutout to aider for figuring this one out
   # sdist issue report, https://github.com/grantjenks/py-tree-sitter-languages/issues/63
   resource "tree-sitter-languages" do
     url "https://github.com/grantjenks/py-tree-sitter-languages/archive/refs/tags/v1.10.2.tar.gz"
@@ -743,12 +713,8 @@ class RaAid < Formula
   end
 
   def install
-    # Explicitly use python@3.12 for virtual environment
-#    python = Formula["python@3.12"].opt_bin/"python3.12"
 
-    # Create virtual environment with python@3.12
-#    virtualenv_create(libexec, python3)
-
+    #Shoutout to aider whom figured out dealing with the tree-sitter-languages issue
     venv = virtualenv_install_with_resources without: "tree-sitter-languages"
 
     # Requires building languages outside `setup.py`: https://github.com/grantjenks/py-tree-sitter-languages/pull/65
