@@ -689,7 +689,6 @@ class RaAid < Formula
   end
 
   def install
-
     # Shoutout to aider whom figured out dealing with the tree-sitter-languages issue
     venv = virtualenv_install_with_resources without: "tree-sitter-languages"
 
