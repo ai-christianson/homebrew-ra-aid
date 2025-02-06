@@ -15,6 +15,7 @@ class RaAid < Formula
   depends_on "certifi"
   depends_on "cffi"
   depends_on "python-setuptools"
+  depends_on "aider"
 
   # Remaining dependencies that must be installed via pip
   resource "aider-chat" do
