@@ -14,6 +14,7 @@ class RaAid < Formula
   depends_on "pillow"
   depends_on "python-setuptools"
   depends_on "python@3.12"
+  depends_on "ripgrep"
   depends_on "rust"
   depends_on "scipy"
 
@@ -701,6 +702,6 @@ class RaAid < Formula
   end
 
   test do
-    false
+    assert_match version.to_s, shell_output("#{bin}/ra-aid --version")
   end
 end
