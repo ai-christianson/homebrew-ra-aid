@@ -540,11 +540,6 @@ class RaAid < Formula
     sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
   end
 
-  resource "ra-aid" do
-    url "https://files.pythonhosted.org/packages/e7/81/7bb72a1fc8d4bd95063d0eb04c14098379297ce0e2926183d56e39c3aa91/ra_aid-0.14.0.tar.gz"
-    sha256 "bca2abdb945364141f8018153878c3910a878d1eb4fa8f7bd8786071908eca20"
-  end
-
   resource "RapidFuzz" do
     url "https://files.pythonhosted.org/packages/c9/df/c300ead8c2962f54ad87872e6372a6836f0181a7f20b433c987bd106bfce/rapidfuzz-3.12.1.tar.gz"
     sha256 "6a98bbca18b4a37adddf2d8201856441c26e9c981d8895491b5bc857b5f780eb"
