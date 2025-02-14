@@ -7,16 +7,16 @@ class RaAid < Formula
   sha256 "052cf1ab503ba98d3b55c440a1053d3a58166248750694950ac2bd7162da6b42"
   license "Apache-2.0"
 
-  depends_on "certifi"
   depends_on "cmake" => :build
   depends_on "ninja" => :build
+  depends_on "rust" => :build
+  depends_on "certifi"
   depends_on "cffi"
   depends_on "numpy"
   depends_on "pillow"
   depends_on "python-setuptools"
   depends_on "python@3.12"
   depends_on "ripgrep"
-  depends_on "rust" => :build
   depends_on "scipy"
 
   # Remaining dependencies that must be installed via pip
