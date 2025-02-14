@@ -7,28 +7,17 @@ class RaAid < Formula
   sha256 "052cf1ab503ba98d3b55c440a1053d3a58166248750694950ac2bd7162da6b42"
   license "Apache-2.0"
 
-  # depends_on "python-setuptools"
   depends_on "python@3.12"
+  depends_on "python-setuptools"
   depends_on "ripgrep"
   depends_on "pillow"
   depends_on "numpy"
   depends_on "scipy"
   depends_on "cffi"
   depends_on "certifi"
-
-
-
-  #build tools
-  depends_on "rust"
+  depends_on "rust" => :build
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-
-
-
-  #TO TEST:
-  # depends_on "numpy"
-  # depends_on "scipy"
-  # depends_on "certifi"
 
   # Remaining dependencies that must be installed via pip
   resource "aider-chat" do
@@ -425,20 +414,6 @@ class RaAid < Formula
     url "https://files.pythonhosted.org/packages/42/92/cc564bf6381ff43ce1f4d06852fc19a2f11d180f23dc32d9588bee2f149d/pexpect-4.9.0.tar.gz"
     sha256 "ee7d41123f3c9911050ea2c2dac107568dc43b2d3b0c7557a33212c398ead30f"
   end
-  #
-  # resource "pillow" do
-  #   on_macos do
-  #     if Hardware::CPU.arm?
-  #       url "https://files.pythonhosted.org/packages/e7/cf/5c558a0f247e0bf9cec92bff9b46ae6474dd736f6d906315e60e4075f737/pillow-10.4.0-cp312-cp312-macosx_11_0_arm64.whl",
-  #           using: :nounzip
-  #       sha256 "866b6942a92f56300012f5fbac71f2d610312ee65e22f1aa2609e491284e5597"
-  #     else
-  #       url "https://files.pythonhosted.org/packages/05/cb/0353013dc30c02a8be34eb91d25e4e4cf594b59e5a55ea1128fde1e5f8ea/pillow-10.4.0-cp312-cp312-macosx_10_10_x86_64.whl",
-  #           using: :nounzip
-  #       sha256 "673655af3eadf4df6b5457033f086e90299fdd7a47983a13827acf7459c15d94"
-  #     end
-  #   end
-  # end
 
   resource "posthog" do
     url "https://files.pythonhosted.org/packages/a1/f9/ffb682dfcfe43ff38c501791b8b4c01ba25f772c5d16bdb8c0f992f099fd/posthog-3.11.0.tar.gz"
@@ -735,25 +710,12 @@ class RaAid < Formula
     sha256 "e987b33ea6decde1e69191ddcaec6ef974458864d243de7191db50c21a7c5b82"
   end
 
-  # resource "numpy" do
-  #   on_macos do
-  #     if Hardware::CPU.arm?
-  #       url "https://files.pythonhosted.org/packages/75/5b/ca6c8bd14007e5ca171c7c03102d17b4f4e0ceb53957e8c44343a9546dcc/numpy-1.26.4-cp312-cp312-macosx_11_0_arm64.whl"
-  #       sha256 "03a8c78d01d9781b28a6989f6fa1bb2c4f2d51201cf99d3dd875df6fbd96b23b"
-  #     else
-  #       url "https://files.pythonhosted.org/packages/95/12/8f2020a8e8b8383ac0177dc9570aad031a3beb12e38847f7129bacd96228/numpy-1.26.4-cp312-cp312-macosx_10_9_x86_64.whl"
-  #       sha256 "b3ce300f3644fb06443ee2222c2201dd3a89ea6040541412b8fa189341847218"
-  #     end
-  #   end
-  # end
-
   # shoutout to aider for figuring this one out
   # sdist issue report, https://github.com/grantjenks/py-tree-sitter-languages/issues/63
   resource "tree-sitter-languages" do
     url "https://github.com/grantjenks/py-tree-sitter-languages/archive/refs/tags/v1.10.2.tar.gz"
     sha256 "cdd03196ebaf8f486db004acd07a5b39679562894b47af6b20d28e4aed1a6ab5"
   end
-
 
   def python3
     "python3.12"
@@ -763,21 +725,15 @@ class RaAid < Formula
     # Shoutout to aider whom figured out dealing with the tree-sitter-languages issue
     venv = virtualenv_install_with_resources without: "tree-sitter-languages"
 
-    # Manually install Pillow using the prebuilt wheel, after moving it to have valid wheel name
-    # pillow_wheel = Pathname.new(resource("pillow").cached_download)
-    # # Construct the proper filename for the wheel (adjust as needed)
-    # new_wheel = buildpath/"Pillow-10.4.0-cp312-cp312-macosx_11_0_arm64.whl"
-    # # Rename the cached file to the proper filename
-    # FileUtils.mv(pillow_wheel, new_wheel)
-    # # Now install Pillow using the prebuilt wheel with correct flags
-    # system venv.root/"bin/python", "-m", "pip", "install", "--only-binary=:all:", new_wheel
-
     # Requires building languages outside `setup.py`: https://github.com/grantjenks/py-tree-sitter-languages/pull/65
     resource("tree-sitter-languages").stage do
       ENV.prepend_path "PYTHONPATH", Formula["cython"].opt_libexec/Language::Python.site_packages(python3)
       system venv.root/"bin/python", "build.py"
       venv.pip_install Pathname.pwd
     end
+
+    # Create symlinks for all executables in the virtualenv's bin
+    bin.install_symlink Dir["#{libexec}/bin/ra-aid"]
   end
 
   test do
