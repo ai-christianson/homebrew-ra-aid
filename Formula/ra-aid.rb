@@ -7,17 +7,17 @@ class RaAid < Formula
   sha256 "052cf1ab503ba98d3b55c440a1053d3a58166248750694950ac2bd7162da6b42"
   license "Apache-2.0"
 
+  depends_on "certifi"
+  depends_on "cffi"
+  depends_on "cmake" => :build
+  depends_on "ninja" => :build
+  depends_on "numpy"
+  depends_on "pillow"
   depends_on "python@3.12"
   depends_on "python-setuptools"
   depends_on "ripgrep"
-  depends_on "pillow"
-  depends_on "numpy"
-  depends_on "scipy"
-  depends_on "cffi"
-  depends_on "certifi"
   depends_on "rust" => :build
-  depends_on "cmake" => :build
-  depends_on "ninja" => :build
+  depends_on "scipy"
 
   # Remaining dependencies that must be installed via pip
   resource "aider-chat" do
@@ -188,6 +188,11 @@ class RaAid < Formula
   resource "google-auth-httplib2" do
     url "https://files.pythonhosted.org/packages/56/be/217a598a818567b28e859ff087f347475c807a5649296fb5a817c58dacef/google-auth-httplib2-0.2.0.tar.gz"
     sha256 "38aa7badf48f974f1eb9861794e9c0cb2a0511a4ec0679b1f886d108f5640e05"
+  end
+
+  resource "google-generativeai" do
+    url "https://files.pythonhosted.org/packages/9b/b0/6c6af327a8a6ef3be6fe79be1d6f1e2914d6c363aa6b081b93396f4460a7/google_generativeai-0.8.4-py3-none-any.whl"
+    sha256 "e987b33ea6decde1e69191ddcaec6ef974458864d243de7191db50c21a7c5b82"
   end
 
   resource "googleapis-common-protos" do
@@ -655,6 +660,13 @@ class RaAid < Formula
     sha256 "b5de3028921522365aa864d95b3c41926e0ba6a85ee5bd000e10dc49b0766988"
   end
 
+  # shoutout to aider for figuring this one out
+  # sdist issue report, https://github.com/grantjenks/py-tree-sitter-languages/issues/63
+  resource "tree-sitter-languages" do
+    url "https://github.com/grantjenks/py-tree-sitter-languages/archive/refs/tags/v1.10.2.tar.gz"
+    sha256 "cdd03196ebaf8f486db004acd07a5b39679562894b47af6b20d28e4aed1a6ab5"
+  end
+
   resource "typing-extensions" do
     url "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz"
     sha256 "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
@@ -703,18 +715,6 @@ class RaAid < Formula
   resource "zstandard" do
     url "https://files.pythonhosted.org/packages/ed/f6/2ac0287b442160a89d726b17a9184a4c615bb5237db763791a7fd16d9df1/zstandard-0.23.0.tar.gz"
     sha256 "b2d8c62d08e7255f68f7a740bae85b3c9b8e5466baa9cbf7f57f1cde0ac6bc09"
-  end
-
-  resource "google-generativeai" do
-    url "https://files.pythonhosted.org/packages/9b/b0/6c6af327a8a6ef3be6fe79be1d6f1e2914d6c363aa6b081b93396f4460a7/google_generativeai-0.8.4-py3-none-any.whl"
-    sha256 "e987b33ea6decde1e69191ddcaec6ef974458864d243de7191db50c21a7c5b82"
-  end
-
-  # shoutout to aider for figuring this one out
-  # sdist issue report, https://github.com/grantjenks/py-tree-sitter-languages/issues/63
-  resource "tree-sitter-languages" do
-    url "https://github.com/grantjenks/py-tree-sitter-languages/archive/refs/tags/v1.10.2.tar.gz"
-    sha256 "cdd03196ebaf8f486db004acd07a5b39679562894b47af6b20d28e4aed1a6ab5"
   end
 
   def python3
