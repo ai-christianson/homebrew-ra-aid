@@ -19,6 +19,11 @@ class RaAid < Formula
   depends_on "ripgrep"
   depends_on "scipy"
 
+  bottle do
+    rebuild 1
+    sha256 cellar: :any, arm64_sequoia: "b29f626f99d74b1a137c384bf1b54a63bcb48d612d365180cb1056071e624acc"
+  end
+
   resource "aider-chat" do
     url "https://files.pythonhosted.org/packages/04/61/82fb836df2fc9c1691fe757b0ff08b44a50114e4f0be1e625936bff7a82e/aider_chat-0.75.1.tar.gz"
     sha256 "e770f3f4a036f97d0dd75d193551e7e6edf937540415f41be6584a4581688750"
