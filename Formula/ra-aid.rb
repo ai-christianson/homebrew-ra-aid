@@ -21,6 +21,12 @@ class RaAid < Formula
   depends_on "ripgrep"
   depends_on "scipy"
 
+  bottle do
+    rebuild 1
+    root_url "https://github.com/ai-christianson/homebrew-ra-aid/releases/download/ra-aid-0.16.0"
+    sha256 cellar: :any, arm64_sequoia: "157c400d4617d1fecee5cccfc373d723643d56bdf0b715766b1bd041cfeb01e3"
+  end
+
   resource "aider-chat" do
     url "https://files.pythonhosted.org/packages/9d/f8/5a4ccbbf8a8368fd5ccdd1621c1296289360692da822123b7f0b27336fd7/aider_chat-0.75.2.tar.gz"
     sha256 "d8a66c592efd2fd024f5387f311b03e90e738ff37d2217b8b6d650285ee0e589"
