@@ -23,7 +23,7 @@ class RaAid < Formula
 
   bottle do
     rebuild 1
-    root_url "https://github.com/ai-christianson/homebrew-ra-aid/releases/download/ra-aid-0.21.0"
+    root_url "https://github.com/ai-christianson/homebrew-ra-aid/releases/download/ra-aid-0.22.0"
     sha256 cellar: :any, arm64_sequoia: "8eef83ad92690dd745608af65f8a1a144827920307cdd065d56b278d4acd965d"
   end
 
