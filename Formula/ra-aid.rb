@@ -1,17 +1,18 @@
-# Formula for RA.Aid
+# Homebrew Formula for RA.Aid
 class RaAid < Formula
   include Language::Python::Virtualenv
 
   desc "RA.Aid (pronounced \"raid\") helps you develop software autonomously"
   homepage "https://github.com/ai-christianson/RA.Aid"
-  url "https://files.pythonhosted.org/packages/e6/67/717a0ddc9ac859f3040efbd8b587f220b1876ca5131a70e4598eacab625f/ra_aid-0.21.0.tar.gz"
-  version "0.21.0"
-  sha256 "686b5e09884c763aa63943d2cbdb8765a436dc44eee59fe0598d55ed91e028aa"
+  url "https://files.pythonhosted.org/packages/bc/6b/ad9b1016f6b60f8c353922f053027851f71164171a15ebafc4843f83183f/ra_aid-0.22.0.tar.gz"
+  version "0.22.0"
+  sha256 "cd578a770231a0541c1f22964640b15d855f6e555aa3e8bd11935890fc6d8ac7"
   license "Apache-2.0"
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "rust" => :build
+  depends_on "cython" => :build
   depends_on "certifi"
   depends_on "libmagic"
   depends_on "libyaml"
@@ -20,20 +21,14 @@ class RaAid < Formula
   depends_on "python@3.12"
   depends_on "ripgrep"
 
-  bottle do
-    rebuild 1
-    root_url "https://github.com/ai-christianson/homebrew-ra-aid/releases/download/ra-aid-0.21.0"
-    sha256 cellar: :any, arm64_sequoia: "e04de1ff9c77d33f897772ba192de9d3bf01fc0c466aeab88e01771b89781b4c"
-  end
-
   resource "aiohappyeyeballs" do
     url "https://files.pythonhosted.org/packages/26/30/f84a107a9c4331c14b2b586036f40965c128aa4fee4dda5d3d51cb14ad54/aiohappyeyeballs-2.6.1.tar.gz"
     sha256 "c3f9d0113123803ccadfdf3f0faa505bc78e6a72d1cc4806cbd719826e943558"
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/6c/96/91e93ae5fd04d428c101cdbabce6c820d284d61d2614d00518f4fa52ea24/aiohttp-3.11.14.tar.gz"
-    sha256 "d6edc538c7480fa0a3b2bdd705f8010062d74700198da55d16498e1b49549b9c"
+    url "https://files.pythonhosted.org/packages/f1/d9/1c4721d143e14af753f2bf5e3b681883e1f24b592c0482df6fa6e33597fa/aiohttp-3.11.16.tar.gz"
+    sha256 "16f8a2c9538c14a557b4d309ed4d0a7c60f0253e8ed7b6c9a2859a7582f8b1b8"
   end
 
   resource "aiosignal" do
@@ -112,8 +107,8 @@ class RaAid < Formula
   end
 
   resource "fsspec" do
-    url "https://files.pythonhosted.org/packages/34/f4/5721faf47b8c499e776bc34c6a8fc17efdf7fdef0b00f398128bc5dcb4ac/fsspec-2025.3.0.tar.gz"
-    sha256 "a935fd1ea872591f2b5148907d103488fc523295e6c64b835cfad8c3eca44972"
+    url "https://files.pythonhosted.org/packages/45/d8/8425e6ba5fcec61a1d16e41b1b71d2bf9344f1fe48012c2b48b9620feae5/fsspec-2025.3.2.tar.gz"
+    sha256 "e52c77ef398680bbd6a98c0e628fbc469491282981209907bbc8aea76a04fdc6"
   end
 
   resource "fuzzywuzzy" do
@@ -152,13 +147,8 @@ class RaAid < Formula
   end
 
   resource "groq" do
-    url "https://files.pythonhosted.org/packages/8f/fc/e5a03586ffad7ae6c7996f388ca321a3bf8b9fa544a36a934ce4b6b44211/groq-0.20.0.tar.gz"
-    sha256 "2a201d41cae768c53d411dabcfea2333e2e138df22d909ed555ece426f1e016f"
-  end
-
-  resource "grpcio" do
-    url "https://files.pythonhosted.org/packages/1c/95/aa11fc09a85d91fbc7dd405dcb2a1e0256989d67bf89fa65ae24b3ba105a/grpcio-1.71.0.tar.gz"
-    sha256 "2b85f7820475ad3edec209d3d89a7909ada16caab05d3f2e08a7e8ae3200a55c"
+    url "https://files.pythonhosted.org/packages/fd/59/7e03f5b12c097b7af48d5fe847a5bd00c90ccfc04b801c2ae68a043ddf1e/groq-0.22.0.tar.gz"
+    sha256 "9d090fbe4a051655faff649890d18aaacb3121393ad9d55399171fe081f1057b"
   end
 
   resource "grpcio-status" do
@@ -187,8 +177,8 @@ class RaAid < Formula
   end
 
   resource "huggingface-hub" do
-    url "https://files.pythonhosted.org/packages/e5/f9/851f34b02970e8143d41d4001b2d49e54ef113f273902103823b8bc95ada/huggingface_hub-0.29.3.tar.gz"
-    sha256 "64519a25716e0ba382ba2d3fb3ca082e7c7eb4a2fc634d200e8380006e0760e5"
+    url "https://files.pythonhosted.org/packages/78/be/049689a7197630e75c4bb53021cb209a56617c9bf39b3a0950650d1f96e1/huggingface_hub-0.30.1.tar.gz"
+    sha256 "f379e8b8d0791295602538856638460ae3cf679c7f304201eb80fb98c771950e"
   end
 
   resource "idna" do
@@ -232,8 +222,8 @@ class RaAid < Formula
   end
 
   resource "langchain" do
-    url "https://files.pythonhosted.org/packages/e7/54/ea3e30df3a7f6f9986cdb5a53d46a219d1e20b5a5e72a480b932a961ff30/langchain-0.3.21.tar.gz"
-    sha256 "a10c81f8c450158af90bf37190298d996208cfd15dd3accc1c585f068473d619"
+    url "https://files.pythonhosted.org/packages/e9/66/36ccbd6285b29473ada883b0e06fdc0973ca181431d6a0175e473160fbfb/langchain-0.3.22.tar.gz"
+    sha256 "fd7781ef02cac6f074f9c6a902236482c61976e21da96ab577874d4e5396eeda"
   end
 
   resource "langchain-anthropic" do
@@ -242,8 +232,13 @@ class RaAid < Formula
   end
 
   resource "langchain-core" do
-    url "https://files.pythonhosted.org/packages/73/bd/db939ba59f28a4ac73fa64281e21f5011ce61fd694c03b88946a554d8442/langchain_core-0.3.49.tar.gz"
-    sha256 "d9dbff9bac0021463a986355c13864d6a68c41f8559dbbd399a68e1ebd9b04b9"
+    url "https://files.pythonhosted.org/packages/eb/af/19315212ba44db8062a394bc3a44de72292e8df11802e8b6d341eee20149/langchain_core-0.3.50.tar.gz"
+    sha256 "8e141b89f2be6020e94c32d7d5141fc6eb5acf1e04e4d80ebd2c74bf30de9f77"
+  end
+
+  resource "langchain-deepseek" do
+    url "https://files.pythonhosted.org/packages/ed/7f/be5bcf99b3814214a02ac205bda66d49d55a7d5440d47223105cef5df063/langchain_deepseek-0.1.3.tar.gz"
+    sha256 "89dd6aa120fb50dcfcd3d593626d34c1c40deefe4510710d0807fcc19481adf5"
   end
 
   resource "langchain-fireworks" do
@@ -257,13 +252,13 @@ class RaAid < Formula
   end
 
   resource "langchain-groq" do
-    url "https://files.pythonhosted.org/packages/ac/21/fc8f8bded725d339f1c7d358e14806ea95accd96a5bfc54a429717ca6431/langchain_groq-0.3.1.tar.gz"
-    sha256 "38b8455870b20d585a6a79027dd9fac523bd2fea27f9083b430304ef0ddbf1bf"
+    url "https://files.pythonhosted.org/packages/e0/4c/973faadcc54fc74352c6758208f48b08dd072025ab33beea52e6c31d4cd1/langchain_groq-0.3.2.tar.gz"
+    sha256 "033f459d4c0515e22a6e64f5a402e366933a6c827fd5915547419cb62fd7b34a"
   end
 
   resource "langchain-mcp-adapters" do
-    url "https://files.pythonhosted.org/packages/bb/84/60cfc76dbe5e7a6721eacae531955e5aedcd65febb3398ca3a46e8d2ab1b/langchain_mcp_adapters-0.0.5.tar.gz"
-    sha256 "d05de412b2910ec652f8ef6008fb7f8ec80db9e4f06593db1d613ebafc15b83d"
+    url "https://files.pythonhosted.org/packages/71/f2/86aa09eb115e0fd2bfcfd466e9a26605242bd17b7970115b601d5097065d/langchain_mcp_adapters-0.0.6.tar.gz"
+    sha256 "87cc456cbbe565717512f27f6ad0d2415c3c72f0728f042c181e41f8b739360e"
   end
 
   resource "langchain-ollama" do
@@ -272,8 +267,8 @@ class RaAid < Formula
   end
 
   resource "langchain-openai" do
-    url "https://files.pythonhosted.org/packages/77/d6/dc77062c0b7c09f18d10a94a33920a69b6bee13079905d638bfdb7300e97/langchain_openai-0.3.11.tar.gz"
-    sha256 "4de846b2770c2b15bee4ec8034af064bfecb01fa86d4c5ff3f427ee337f0e98c"
+    url "https://files.pythonhosted.org/packages/32/01/94d861be321df40f104324d3c64115917c7e774bb5d6af45d4af967c863c/langchain_openai-0.3.12.tar.gz"
+    sha256 "c9dbff63551f6bd91913bca9f99a2d057fd95dc58d4778657d67e5baa1737f61"
   end
 
   resource "langchain-text-splitters" do
@@ -282,13 +277,13 @@ class RaAid < Formula
   end
 
   resource "langgraph" do
-    url "https://files.pythonhosted.org/packages/ce/94/422f333990cc62fc9cf36025427b256f17454654c13791d7361423117c35/langgraph-0.3.21.tar.gz"
-    sha256 "971a7f3ee5f1ab4c88032023f090b7a57d59cb93ea930658aa0b7ac4767f4bcb"
+    url "https://files.pythonhosted.org/packages/b8/3c/26e4b5c4ad448d4c74f1977a2908e3e8cd5202e9b46621a248d139775c84/langgraph-0.3.24.tar.gz"
+    sha256 "7d286b9f5b374c8527559a86b2fb5a9f9af19e065de4b41e85f74793e5336195"
   end
 
   resource "langgraph-checkpoint" do
-    url "https://files.pythonhosted.org/packages/a3/86/cca9b5d05c0ea64b03cd9e845da6b37f83a22ea13abb7b328ca5dfe48474/langgraph_checkpoint-2.0.23.tar.gz"
-    sha256 "38bd1fe451b569b773fef6e3daecdeb85f3deac2d94f7551bfd20f1818042c8a"
+    url "https://files.pythonhosted.org/packages/0d/df/bacef68562ba4c391ded751eecda8e579ec78a581506064cf625e0ebd93a/langgraph_checkpoint-2.0.24.tar.gz"
+    sha256 "9596dad332344e7e871257be464df8a07c2e9bac66143081b11b9422b0167e5b"
   end
 
   resource "langgraph-prebuilt" do
@@ -297,13 +292,13 @@ class RaAid < Formula
   end
 
   resource "langgraph-sdk" do
-    url "https://files.pythonhosted.org/packages/31/09/a26b1ea39acd2c0b86a0334f710c60a3412929566391541a688c146c00b1/langgraph_sdk-0.1.59.tar.gz"
-    sha256 "c125ef6723d7568dd848026c61ac3c671f9bd720ff4867557a2a349b89a822fe"
+    url "https://files.pythonhosted.org/packages/04/15/ddd7c35c7fdfc287938dc04c58fb10b19f47bd1c4089c887eda5d41854a5/langgraph_sdk-0.1.60.tar.gz"
+    sha256 "7857a4a2a20a6a4c9934d1e7b5145eda92e3bc7286121813de2464d071050f88"
   end
 
   resource "langsmith" do
-    url "https://files.pythonhosted.org/packages/7c/03/22d2235d16694c4751957f8c247e0734963be407c88a0ed2d8b9b1a3365b/langsmith-0.3.19.tar.gz"
-    sha256 "0133676689b5e1b879ed05a18e18570daf0dd05e0cefc397342656a58ebecbc5"
+    url "https://files.pythonhosted.org/packages/bf/d9/34d78d0afe9545d25ec9bbe276d7ea73af320d6b91cac59b84a3e7be0784/langsmith-0.3.23.tar.gz"
+    sha256 "d0a1807b62158c98e69b4c250d25b68fe3464a09c780ed4b2b597cd659d0164e"
   end
 
   resource "Levenshtein" do
@@ -312,8 +307,8 @@ class RaAid < Formula
   end
 
   resource "litellm" do
-    url "https://files.pythonhosted.org/packages/8f/2a/7a4d04aa0edec4c583acb78657043569741dcc4a5da6aa381ee867bacd94/litellm-1.64.1.tar.gz"
-    sha256 "73bac891b1fbd77ada4d691e967657c53f48c207d9c3ba414ad0ffe3e7ec8f89"
+    url "https://files.pythonhosted.org/packages/da/d0/240bb0e7cb9c490aafff7c1c28e3cf7d68ac2c6089b49f90c64823207cb3/litellm-1.65.1.tar.gz"
+    sha256 "cbc8d7dfa5f7f47e6842796ca0c39682eb874718faab17fa991ab6c2f55e844c"
   end
 
   resource "markdown-it-py" do
@@ -347,8 +342,8 @@ class RaAid < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/ab/99/d164612528dfb7a9b19330623daded608e75d25823b01f81e0376eb388a4/openai-1.69.0.tar.gz"
-    sha256 "7b8a10a8ff77e1ae827e5e4c8480410af2070fb68bc973d6c994cf8218f1f98d"
+    url "https://files.pythonhosted.org/packages/87/f5/ae0f3cd226c2993b4ac1cc4b5f6ca099764689f403c14922c9356accec66/openai-1.70.0.tar.gz"
+    sha256 "e52a8d54c3efeb08cf58539b5b21a5abef25368b5432965e4de88cdf4e091b2b"
   end
 
   resource "orjson" do
@@ -381,11 +376,6 @@ class RaAid < Formula
     sha256 "eb437d586b6a0986388f0d6f74aa0cde27b48d0e3d66843640bfb6bdcdb6e351"
   end
 
-  resource "pluggy" do
-    url "https://files.pythonhosted.org/packages/96/2d/02d4312c973c6050a18b314a5ad0b3210edb65a906f868e31c111dede4a6/pluggy-1.5.0.tar.gz"
-    sha256 "2cffa88e94fdc978c4c574f15f9e59b7f4201d439195c3715ca9e2486f1d0cf1"
-  end
-
   resource "prompt-toolkit" do
     url "https://files.pythonhosted.org/packages/a1/e1/bd15cb8ffdcfeeb2bdc215de3c3cffca11408d829e4b8416dcfe71ba8854/prompt_toolkit-3.0.50.tar.gz"
     sha256 "544748f3860a2623ca5cd6d2795e7a14f3d0e1c3c9728359013f79877fc89bab"
@@ -412,13 +402,13 @@ class RaAid < Formula
   end
 
   resource "pyasn1-modules" do
-    url "https://files.pythonhosted.org/packages/1d/67/6afbf0d507f73c32d21084a79946bfcfca5fbc62a72057e9c23797a737c9/pyasn1_modules-0.4.1.tar.gz"
-    sha256 "c28e2dbf9c06ad61c71a075c7e0f9fd0f1b0bb2d2ad4377f240d33ac2ab60a7c"
+    url "https://files.pythonhosted.org/packages/e9/e6/78ebbb10a8c8e4b61a59249394a4a594c1a7af95593dc933a349c8d00964/pyasn1_modules-0.4.2.tar.gz"
+    sha256 "677091de870a80aae844b1ca6134f54652fa2c8c5a52aa396440ac3106e941e6"
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/82/2a/4ba34614269b1e12a28b9fe54710983f5c3679f945797e86250c6269263f/pydantic-2.11.0.tar.gz"
-    sha256 "d6a287cd6037dee72f0597229256dfa246c4d61567a250e99f86b7b4626e2f41"
+    url "https://files.pythonhosted.org/packages/93/a3/698b87a4d4d303d7c5f62ea5fbf7a79cab236ccfbd0a17847b7f77f8163e/pydantic-2.11.1.tar.gz"
+    sha256 "442557d2910e75c991c39f4b4ab18963d57b9b55122c8b2a9cd176d8c29ce968"
   end
 
   resource "pydantic-core" do
@@ -487,8 +477,8 @@ class RaAid < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/ab/3a/0316b28d0761c6734d6bc14e770d85506c986c85ffb239e688eeaab2c2bc/rich-13.9.4.tar.gz"
-    sha256 "439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098"
+    url "https://files.pythonhosted.org/packages/a1/53/830aa4c3066a8ab0ae9a9955976fb770fe9c6102117c8ec4ab3ea62d89e8/rich-14.0.0.tar.gz"
+    sha256 "82f1bc23a6a21ebca4ae0c45af9bdbc492ed20231dcb63f297d6d1021a9d5725"
   end
 
   resource "rpds-py" do
@@ -532,13 +522,13 @@ class RaAid < Formula
   end
 
   resource "tavily-python" do
-    url "https://files.pythonhosted.org/packages/db/ff/ba1a3769c34d022aeba544ff7b18cbcd0d23a6358fc3566b2101c6bf2817/tavily_python-0.5.1.tar.gz"
-    sha256 "44b0eefe79a057cd11d3cd03780b63b4913400122350e38285acfb502c2fffc1"
+    url "https://files.pythonhosted.org/packages/2c/72/f36a49c2fd344b45e6f1ddab59a7f809bff4f46dcc78af7ac9758461a5bf/tavily_python-0.5.4.tar.gz"
+    sha256 "fdad5303f9f6603a06fddcc7e21b128bebc1adf7694e553a664caf87eb2d2d9d"
   end
 
   resource "tenacity" do
-    url "https://files.pythonhosted.org/packages/cd/94/91fccdb4b8110642462e653d5dcb27e7b674742ad68efd146367da7bdb10/tenacity-9.0.0.tar.gz"
-    sha256 "807f37ca97d62aa361264d497b0e31e92b8027044942bfa756160d908320d73b"
+    url "https://files.pythonhosted.org/packages/0a/d4/2b0cd0fe285e14b36db076e78c93766ff1d529d70408bd1d2a5a84f1d929/tenacity-9.1.2.tar.gz"
+    sha256 "1169d376c297e7de388d18b4481760d478b0e99a777cad3a9c86e556f4b697cb"
   end
 
   resource "tiktoken" do
@@ -554,11 +544,6 @@ class RaAid < Formula
   resource "tqdm" do
     url "https://files.pythonhosted.org/packages/a8/4b/29b4ef32e036bb34e4ab51796dd745cdba7ed47ad142a9f4a1eb8e0c744d/tqdm-4.67.1.tar.gz"
     sha256 "f8aef9c52c08c13a65f30ea34f4e5aac3fd1a34959879d7e59e63027286627f2"
-  end
-
-  resource "trove-classifiers" do
-    url "https://files.pythonhosted.org/packages/23/c6/1bc495f33ab4cd16c1044bde55d5ac76646c6c759df751218c7c2aeb3bba/trove_classifiers-2025.3.19.19.tar.gz"
-    sha256 "98e9d396fe908d5f43b7454fa4c43d17cd0fdadf046f45fb38a5e3af8d959ecd"
   end
 
   resource "typer" do
@@ -624,7 +609,13 @@ class RaAid < Formula
   def install
     ENV["PIP_NO_BUILD_ISOLATION"] = "1"
 
-    venv = virtualenv_install_with_resources without: ["Levenshtein", "RapidFuzz", "langgraph-checkpoint"]
+    venv = virtualenv_install_with_resources without: ["grpcio-status", "Levenshtein", "RapidFuzz", "langgraph-checkpoint"]
+
+    resource("grpcio-status").stage do
+      system libexec/"bin/python", "-m", "pip", "install", "--verbose", "--only-binary=:all:", "grpcio"
+
+      venv.pip_install Pathname.pwd
+    end
 
     resource("Levenshtein").stage do
       # Now we're in the unpacked Levenshtein source directory
