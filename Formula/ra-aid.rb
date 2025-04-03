@@ -21,6 +21,12 @@ class RaAid < Formula
   depends_on "python@3.12"
   depends_on "ripgrep"
 
+  bottle do
+    rebuild 1
+    root_url "https://github.com/ai-christianson/homebrew-ra-aid/releases/download/ra-aid-0.21.0"
+    sha256 cellar: :any, arm64_sequoia: "8eef83ad92690dd745608af65f8a1a144827920307cdd065d56b278d4acd965d"
+  end
+
   resource "aiohappyeyeballs" do
     url "https://files.pythonhosted.org/packages/26/30/f84a107a9c4331c14b2b586036f40965c128aa4fee4dda5d3d51cb14ad54/aiohappyeyeballs-2.6.1.tar.gz"
     sha256 "c3f9d0113123803ccadfdf3f0faa505bc78e6a72d1cc4806cbd719826e943558"
