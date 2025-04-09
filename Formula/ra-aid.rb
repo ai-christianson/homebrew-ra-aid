@@ -4,9 +4,9 @@ class RaAid < Formula
 
   desc "RA.Aid (pronounced \"raid\") helps you develop software autonomously"
   homepage "https://github.com/ai-christianson/RA.Aid"
-  url "https://files.pythonhosted.org/packages/70/c2/ce6122a931210d7ab2a99e85e454f9e0753286e8433886f7425c1fa38510/ra_aid-0.23.0.tar.gz"
-  version "0.23.0"
-  sha256 "9a493e716c0ebcd4de4d6cfcd005d1c9a5626c6de0b803c9496662d879cd65f8"
+  url "https://files.pythonhosted.org/packages/5a/17/1a22cfb6cba077eedbdffc44f00c99b30dddb6bbeb47174b9dfd7eb8b0ad/ra_aid-0.24.0.tar.gz"
+  version "0.24.0"
+  sha256 "3a2dc6a0b5ef724b24d3fde0e022a4e74f8faea36edb59abb293a4db79a10a8d"
   license "Apache-2.0"
 
   depends_on "cmake" => :build
@@ -20,12 +20,6 @@ class RaAid < Formula
   depends_on "python-setuptools"
   depends_on "python@3.12"
   depends_on "ripgrep"
-
-  bottle do
-    rebuild 1
-    root_url "https://github.com/ai-christianson/homebrew-ra-aid/releases/download/ra-aid-0.23.0"
-    sha256 cellar: :any, arm64_sequoia: "7f580aacb62aa6a5a72055fe077ae271fd6317ab85d74e340272ce551cec088c"
-  end
 
   resource "aiohappyeyeballs" do
     url "https://files.pythonhosted.org/packages/26/30/f84a107a9c4331c14b2b586036f40965c128aa4fee4dda5d3d51cb14ad54/aiohappyeyeballs-2.6.1.tar.gz"
@@ -183,8 +177,8 @@ class RaAid < Formula
   end
 
   resource "huggingface-hub" do
-    url "https://files.pythonhosted.org/packages/78/be/049689a7197630e75c4bb53021cb209a56617c9bf39b3a0950650d1f96e1/huggingface_hub-0.30.1.tar.gz"
-    sha256 "f379e8b8d0791295602538856638460ae3cf679c7f304201eb80fb98c771950e"
+    url "https://files.pythonhosted.org/packages/df/22/8eb91736b1dcb83d879bd49050a09df29a57cc5cd9f38e48a4b1c45ee890/huggingface_hub-0.30.2.tar.gz"
+    sha256 "9a7897c5b6fd9dad3168a794a8998d6378210f5b9688d0dfc180b1a228dc2466"
   end
 
   resource "idna" do
@@ -268,8 +262,8 @@ class RaAid < Formula
   end
 
   resource "langchain-ollama" do
-    url "https://files.pythonhosted.org/packages/61/36/0ed0173ac8d88a0f6d769fb786a5b736f4b449093b9e47aa787ba0f6b0b4/langchain_ollama-0.3.0.tar.gz"
-    sha256 "4989f79d4b2d0d51f3a95e53b4c368c95c6bb64922a9ea40a7a376b43187803b"
+    url "https://files.pythonhosted.org/packages/54/39/32f61a775a85a4162fa1661894ab56f722cf69484bb0bd4cd3812c3bd762/langchain_ollama-0.3.1.tar.gz"
+    sha256 "d847d1bd6da280f7b2f667c98dc240d23f19c72315e0f01d7d05e78a60b42276"
   end
 
   resource "langchain-openai" do
@@ -283,8 +277,8 @@ class RaAid < Formula
   end
 
   resource "langgraph" do
-    url "https://files.pythonhosted.org/packages/f9/3f/565526f03e3a1b67c36b04e82bfbf85b933ac9b65ffc6fb0e79b91d6cdab/langgraph-0.3.25.tar.gz"
-    sha256 "78070c4ca3e160eaaf9ae2d62ef3c11b09bded6094e35a9ad75a608dc71cd299"
+    url "https://files.pythonhosted.org/packages/c6/20/d2c4f8b6378ec0d2b9f8925b9e1fdaa6cb0e1ac16213676ba6f6cbc45c09/langgraph-0.3.26.tar.gz"
+    sha256 "cb50d819da206bb0267febf265bd5bda8915aa6d61729d2f86dd5e0d0e83f8fd"
   end
 
   resource "langgraph-checkpoint" do
@@ -303,8 +297,8 @@ class RaAid < Formula
   end
 
   resource "langsmith" do
-    url "https://files.pythonhosted.org/packages/55/03/87654739e7a2c8d511421d3f9f539036efbefc552eaab9852ac5d53b0587/langsmith-0.3.25.tar.gz"
-    sha256 "ac747e228ddef6a73d87d85b42431efb2954e1dfc9504e29f1d95263674bd257"
+    url "https://files.pythonhosted.org/packages/94/12/bdae56a738323d4616ac4f57597b7e6430e51fc0865c50f0ca1cbf2c3259/langsmith-0.3.27.tar.gz"
+    sha256 "0bdeda73cf723cbcde1cab0f3459f7e5d5748db28a33bf9f6bdc0e2f4fe0ee1e"
   end
 
   resource "Levenshtein" do
@@ -338,8 +332,8 @@ class RaAid < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/fa/2d/6e0d6771cadd5ad14d13193cc8326dc0b341cc1659c306cbfce7a5058fff/multidict-6.3.2.tar.gz"
-    sha256 "c1035eea471f759fa853dd6e76aaa1e389f93b3e1403093fa0fd3ab4db490678"
+    url "https://files.pythonhosted.org/packages/82/4a/7874ca44a1c9b23796c767dd94159f6c17e31c0e7d090552a1c623247d82/multidict-6.2.0.tar.gz"
+    sha256 "0085b0afb2446e57050140240a8595846ed64d1cbd26cef936bfab3192c673b8"
   end
 
   resource "ollama" do
@@ -348,8 +342,8 @@ class RaAid < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/d9/19/b8f0347090a649dce55a008ec54ac6abb50553a06508cdb5e7abb2813e99/openai-1.71.0.tar.gz"
-    sha256 "52b20bb990a1780f9b0b8ccebac93416343ebd3e4e714e3eff730336833ca207"
+    url "https://files.pythonhosted.org/packages/41/56/41de36c0e9f787c406211552ecf2ca4fba3db900207c5c158c4dc67263fc/openai-1.72.0.tar.gz"
+    sha256 "f51de971448905cc90ed5175a5b19e92fd94e31f68cde4025762f9f5257150db"
   end
 
   resource "orjson" do
@@ -413,8 +407,8 @@ class RaAid < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/b0/41/832125a41fe098b58d1fdd04ae819b4dc6b34d6b09ed78304fd93d4bc051/pydantic-2.11.2.tar.gz"
-    sha256 "2138628e050bd7a1e70b91d4bf4a91167f4ad76fdb83209b107c8d84b854917e"
+    url "https://files.pythonhosted.org/packages/10/2e/ca897f093ee6c5f3b0bee123ee4465c50e75431c3d5b6a3b44a47134e891/pydantic-2.11.3.tar.gz"
+    sha256 "7471657138c16adad9322fe3070c0116dd6c3ad8d649300e3cbdfe91f4db4ec3"
   end
 
   resource "pydantic-core" do
@@ -615,7 +609,7 @@ class RaAid < Formula
   def install
     ENV["PIP_NO_BUILD_ISOLATION"] = "1"
 
-    venv = virtualenv_install_with_resources without: ["grpcio-status", "Levenshtein", "RapidFuzz", "langgraph-checkpoint"]
+    venv = virtualenv_install_with_resources without: ["grpcio-status", "Levenshtein", "RapidFuzz", "langgraph-checkpoint", "pyte", "zstandard"]
 
     resource("grpcio-status").stage do
       system libexec/"bin/python", "-m", "pip", "install", "--verbose", "--only-binary=:all:", "grpcio"
@@ -650,6 +644,14 @@ class RaAid < Formula
     resource("langgraph-checkpoint").stage do
       system libexec/"bin/python", "-m", "pip", "install", "--verbose", "--only-binary=:all:", "ormsgpack"
       venv.pip_install Pathname.pwd
+    end
+
+    resource("pyte").stage do
+      system libexec/"bin/python", "-m", "pip", "install", "--verbose", "--only-binary=:all:", "pyte"
+    end
+
+    resource("zstandard").stage do
+      system libexec/"bin/python", "-m", "pip", "install", "--verbose", "--only-binary=:all:", "zstandard"
     end
 
     # Create symlinks for all executables in the virtualenv's bin
