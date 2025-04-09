@@ -4,9 +4,9 @@ class RaAid < Formula
 
   desc "RA.Aid (pronounced \"raid\") helps you develop software autonomously"
   homepage "https://github.com/ai-christianson/RA.Aid"
-  url "https://files.pythonhosted.org/packages/5a/17/1a22cfb6cba077eedbdffc44f00c99b30dddb6bbeb47174b9dfd7eb8b0ad/ra_aid-0.24.0.tar.gz"
-  version "0.24.0"
-  sha256 "3a2dc6a0b5ef724b24d3fde0e022a4e74f8faea36edb59abb293a4db79a10a8d"
+  url "https://files.pythonhosted.org/packages/43/ee/b08c16d11d0ba81545d10612432c2fb98ef1a51946cf33ff8dd0254e4cc4/ra_aid-0.25.0.tar.gz"
+  version "0.25.0"
+  sha256 "0989bea7b11639e316247a4ab71fd9c0318cf037056889abcde055b0f70d5f0d"
   license "Apache-2.0"
 
   depends_on "cmake" => :build
@@ -20,12 +20,6 @@ class RaAid < Formula
   depends_on "python-setuptools"
   depends_on "python@3.12"
   depends_on "ripgrep"
-
-  bottle do
-    rebuild 1
-    root_url "https://github.com/ai-christianson/homebrew-ra-aid/releases/download/ra-aid-0.24.0"
-    sha256 cellar: :any, arm64_sequoia: "56b8f3fb2be8fa823bd5cf60a578562e1537476c22ad5cd284ecd1594fea4e72"
-  end
 
   resource "aiohappyeyeballs" do
     url "https://files.pythonhosted.org/packages/26/30/f84a107a9c4331c14b2b586036f40965c128aa4fee4dda5d3d51cb14ad54/aiohappyeyeballs-2.6.1.tar.gz"
@@ -283,8 +277,8 @@ class RaAid < Formula
   end
 
   resource "langgraph" do
-    url "https://files.pythonhosted.org/packages/c6/20/d2c4f8b6378ec0d2b9f8925b9e1fdaa6cb0e1ac16213676ba6f6cbc45c09/langgraph-0.3.26.tar.gz"
-    sha256 "cb50d819da206bb0267febf265bd5bda8915aa6d61729d2f86dd5e0d0e83f8fd"
+    url "https://files.pythonhosted.org/packages/e4/ab/889224bafa9f927150095c038481d485dc567bd81e82e676d912f5d62c13/langgraph-0.3.27.tar.gz"
+    sha256 "bd731f9e56b82d069b20b360107f8cfc7e80f3035d33fcfb833cf80bcb2a270d"
   end
 
   resource "langgraph-checkpoint" do
@@ -303,8 +297,8 @@ class RaAid < Formula
   end
 
   resource "langsmith" do
-    url "https://files.pythonhosted.org/packages/94/12/bdae56a738323d4616ac4f57597b7e6430e51fc0865c50f0ca1cbf2c3259/langsmith-0.3.27.tar.gz"
-    sha256 "0bdeda73cf723cbcde1cab0f3459f7e5d5748db28a33bf9f6bdc0e2f4fe0ee1e"
+    url "https://files.pythonhosted.org/packages/da/00/55826a0645e9f65537c952f2467d18de74c022636c72cb52a2f85e4add6a/langsmith-0.3.28.tar.gz"
+    sha256 "4666595207131d7f8d83418e54dc86c05e28562e5c997633e7c33fc18f9aeb89"
   end
 
   resource "Levenshtein" do
