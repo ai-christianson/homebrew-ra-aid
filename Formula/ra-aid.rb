@@ -22,7 +22,7 @@ class RaAid < Formula
   depends_on "ripgrep"
 
   bottle do
-    rebuild 2
+    rebuild 1
     root_url "https://github.com/ai-christianson/homebrew-ra-aid/releases/download/ra-aid-0.30.2"
     sha256 cellar: :any, arm64_sequoia: "f4ac6ca48f73c90af9cd81b905efb30c062f21c38c21aa1e4611c39356daed74"
   end
